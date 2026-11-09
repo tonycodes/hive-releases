@@ -1,0 +1,46 @@
+name: Hive index
+description: Build this repository's code graph and publish it to Hive.
+inputs:
+  upload-url:
+    description: Upload URL returned when the repository was enrolled in Hive.
+    required: true
+  upload-token:
+    description: Upload token. Leave empty on GitHub to use OIDC, which needs `id-token: write`.
+    required: false
+    default: ""
+  path:
+    description: Repository path.
+    required: false
+    default: "."
+  version:
+    description: Hive CLI version to install.
+    required: false
+    default: "0.3.0"
+runs:
+  using: composite
+  steps:
+    - name: Install Hive
+      shell: bash
+      env:
+        HIVE_VERSION: ${{ inputs.version }}
+      run: |
+        HIVE_INSTALL_DIR="$RUNNER_TEMP/hive-bin" "$GITHUB_ACTION_PATH/install.sh"
+        echo "$RUNNER_TEMP/hive-bin" >> "$GITHUB_PATH"
+    - name: Publish the graph
+      if: github.event_name != 'delete' && github.event.deleted != true
+      shell: bash
+      env:
+        HIVE_UPLOAD_URL: ${{ inputs.upload-url }}
+        HIVE_UPLOAD_TOKEN: ${{ inputs.upload-token }}
+        HIVE_PATH: ${{ inputs.path }}
+      run: |
+        hive build --path "$HIVE_PATH"
+        hive push --path "$HIVE_PATH"
+    - name: Remove the deleted branch's graph
+      if: github.event_name == 'delete' && github.event.ref_type == 'branch'
+      shell: bash
+      env:
+        HIVE_UPLOAD_URL: ${{ inputs.upload-url }}
+        HIVE_UPLOAD_TOKEN: ${{ inputs.upload-token }}
+        DELETED_BRANCH: ${{ github.event.ref }}
+      run: hive delete-branch --ref "refs/heads/$DELETED_BRANCH"
