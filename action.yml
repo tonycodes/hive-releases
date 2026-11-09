@@ -5,7 +5,7 @@ inputs:
     description: Upload URL returned when the repository was enrolled in Hive.
     required: true
   upload-token:
-    description: Upload token. Leave empty on GitHub to use OIDC, which needs `id-token: write`.
+    description: "Upload token. Leave empty on GitHub to use OIDC, which needs `id-token: write`."
     required: false
     default: ""
   path:
