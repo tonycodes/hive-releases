@@ -1,51 +1,51 @@
-Arc Freeware License
+Hive Freeware License
 
 Copyright (c) 2026 Tony James. All rights reserved.
 
-This license applies to the compiled Arc desktop application, installers,
-release assets, documentation, icons, and brand assets published by the
-project. It does not license the Arc source code.
+This license applies to the compiled Hive command-line tool (`hive`), its
+release archives, the Hive GitHub Action, documentation, icons, and brand
+assets published by the project. It does not license the Hive source code.
 
 1. Grant
 
-You may download, install, and use the official compiled Arc application free
-of charge.
+You may download, install, and use the official compiled Hive tool free of
+charge.
 
-You may redistribute unmodified copies of official Arc installers, provided
-that you keep this license and any third-party notices with the installer, do
+You may redistribute unmodified copies of official Hive release archives,
+provided that you keep this license and any third-party notices with them, do
 not remove or alter signatures, checksums, or attribution, and do not represent
-yourself as affiliated with or endorsed by Arc or its maintainers.
+yourself as affiliated with or endorsed by Hive or its maintainers.
 
 2. Restrictions
 
 Except where applicable law requires otherwise, you may not:
 
-- copy Arc except as allowed above;
-- modify, adapt, translate, or create derivative works of Arc;
-- reverse engineer, decompile, disassemble, or attempt to derive Arc source
+- copy Hive except as allowed above;
+- modify, adapt, translate, or create derivative works of Hive;
+- reverse engineer, decompile, disassemble, or attempt to derive Hive source
   code;
 - remove, alter, or obscure copyright, trademark, signature, notarization,
   license, or security notices;
-- sell, sublicense, rent, lease, host, or commercially distribute Arc; or
-- use Arc to violate law, infringe third-party rights, or bypass access
+- sell, sublicense, rent, lease, host, or commercially distribute Hive; or
+- use Hive to violate law, infringe third-party rights, or bypass access
   controls.
 
 3. Source Code
 
-The Arc source code is private and is not distributed or licensed through the
+The Hive source code is private and is not distributed or licensed through the
 public release repository. No rights are granted to the source code unless a
 separate written agreement says otherwise.
 
 4. Online Services and Updates
 
-Arc may connect to Arc or Agent Code Lab services for account linking,
-organization features, updates, support, or related product functionality.
+Hive may connect to the Hive service (hive.tony.codes) to publish code
+graphs, for account features, updates, support, or related functionality.
 Those services may be changed, suspended, or discontinued. Continued use of
-online services may require compatible current versions of Arc.
+online services may require compatible current versions of Hive.
 
 5. Third-Party Components
 
-Arc includes third-party open source components. Those components remain
+Hive includes third-party open source components. Those components remain
 licensed under their own license terms. Nothing in this license limits rights
 you have under those third-party licenses. See THIRD-PARTY-NOTICES.md for
 additional information.
@@ -59,12 +59,12 @@ restriction or payment.
 7. Termination
 
 This license terminates automatically if you breach its terms. Upon
-termination, you must stop using and redistributing Arc and delete any copies
+termination, you must stop using and redistributing Hive and delete any copies
 in your possession or control.
 
 8. Disclaimer of Warranty
 
-Arc is provided "as is" and "as available", without warranties of any kind,
+Hive is provided "as is" and "as available", without warranties of any kind,
 whether express, implied, statutory, or otherwise, including warranties of
 merchantability, fitness for a particular purpose, title, and non-infringement.
 
@@ -73,7 +73,7 @@ merchantability, fitness for a particular purpose, title, and non-infringement.
 To the maximum extent permitted by law, the copyright holder and project
 maintainers will not be liable for any indirect, incidental, special,
 consequential, exemplary, or punitive damages, or for loss of profits, revenue,
-data, goodwill, or business interruption, arising from or relating to Arc or
+data, goodwill, or business interruption, arising from or relating to Hive or
 this license, even if advised of the possibility of those damages.
 
 10. Reservation of Rights
