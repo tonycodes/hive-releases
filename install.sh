@@ -27,5 +27,4 @@ curl -fsSL --retry 3 -o "$work/$archive.sha256" "$base/$archive.sha256"
 tar -xzf "$work/$archive" -C "$work"
 mkdir -p "$dir"
 install -m 0755 "$work/hive" "$dir/hive"
-"$dir/hive" --help >/dev/null
-echo "Installed hive to $dir"
+echo "Installed $("$dir/hive" --version) to $dir"
