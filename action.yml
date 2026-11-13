@@ -15,7 +15,7 @@ inputs:
   version:
     description: Hive CLI version to install.
     required: false
-    default: "0.3.1"
+    default: "0.3.2"
 runs:
   using: composite
   steps:
