@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install the Hive CLI. HIVE_VERSION and HIVE_INSTALL_DIR are optional.
+# Install the Hive CLI (`hivegraph`). HIVE_VERSION and HIVE_INSTALL_DIR are optional.
 set -euo pipefail
 
 repo="tonycodes/hive-releases"
@@ -18,13 +18,20 @@ else
   base="https://github.com/$repo/releases/latest/download"
 fi
 
+# Releases before 0.4.0 shipped the command as `hive`.
+bin="hivegraph"
+case "${HIVE_VERSION:-}" in 0.[0-3].*) bin="hive" ;; esac
+
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
-archive="hive-$target.tar.gz"
+archive="$bin-$target.tar.gz"
 curl -fsSL --retry 3 -o "$work/$archive" "$base/$archive"
 curl -fsSL --retry 3 -o "$work/$archive.sha256" "$base/$archive.sha256"
 (cd "$work" && shasum -a 256 -c "$archive.sha256" >/dev/null)
 tar -xzf "$work/$archive" -C "$work"
 mkdir -p "$dir"
-install -m 0755 "$work/hive" "$dir/hive"
-echo "Installed $("$dir/hive" --version) to $dir"
+install -m 0755 "$work/$bin" "$dir/$bin"
+echo "Installed $("$dir/$bin" --version) to $dir"
+if [ "$bin" = hivegraph ] && [ -x "$dir/hive" ] && "$dir/hive" --version 2>/dev/null | grep -q '^hive 0\.'; then
+  echo "The Hive CLI is now called hivegraph. Remove the old $dir/hive and update MCP configs that run \`hive serve\`."
+fi
